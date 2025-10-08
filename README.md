@@ -19,18 +19,23 @@ Your daily progress and project work must be documented according to the followi
 
 .
 ├── README.md                 // Project overview and guidelines (This file)
-├── interns/approved\_intern+template.md        // Intern Profile and Goal Template (MANDATORY initial step)
+├── interns/
+│   ├── approved_intern+template.md        // Intern Profile and Goal Template (MANDATORY initial step)
+│   ├── intern_checklist.md                // Onboarding and offboarding checklist for interns
+│   ├── team_conversation_template.md      // Templates for team communication
+│   ├── email_conversation_template.md     // Templates for email communication
+│   └── pr_and_commit_guide.md             // Guide for pull requests and commit messages
 └── days/
-├── flutter/
-│   └── flutter\_roadmap.md   // Detailed 100-day flow for Flutter
-├── expo/
-│   └── expo\_roadmap.md      // Detailed 100-day flow for Expo (React Native)
-├── devops/
-│   └── devops\_roadmap.md    // Detailed 100-day flow for DevOps
-├── nestjs/
-│   └── nestjs\_roadmap.md    // Detailed 100-day flow for NestJS
-└── git/
-    └── git\_roadmap.md       // Detailed 100-day flow for Git
+    ├── flutter/
+    │   └── flutter_roadmap.md   // Detailed 100-day flow for Flutter
+    ├── expo/
+    │   └── expo_roadmap.md      // Detailed 100-day flow for Expo (React Native)
+    ├── devops/
+    │   └── devops_roadmap.md    // Detailed 100-day flow for DevOps
+    ├── nestjs/
+    │   └── nestjs_roadmap.md    // Detailed 100-day flow for NestJS
+    └── git/
+        └── git_roadmap.md       // Detailed 100-day flow for Git
 
 ````
 
