@@ -1,11 +1,12 @@
 # 🚀 MasterFabric 100-Day Software Developer Internship Roadmap (From Foundational Skills to Professional Competence)
 
-MasterFabric Information Technology Inc. is dedicated to crafting exceptional software solutions—including mobile apps, backend services, and AI-powered systems—with cutting-edge technology across diverse industries. This 100-day roadmap is designed to empower aspiring developers to become skilled professionals, with tracks in cross-platform mobile development, robust backend services, and AI agent development.
+MasterFabric Information Technology Inc. is dedicated to crafting exceptional software solutions—including mobile apps, backend services, full-stack web applications, and AI-powered systems—with cutting-edge technology across diverse industries. This 100-day roadmap is designed to empower aspiring developers to become skilled professionals, with tracks in cross-platform mobile development, robust backend services, full-stack web development, and AI agent development.
 
 ## 🎯 Program Core Objectives
 * **Track Proficiency:** Achieve strong competency in a chosen track:
     * **Mobile Development:** Flutter or Expo/React Native.
     * **Backend Development:** NestJS.
+    * **Full-Stack Development:** NextJS.
     * **AI Agent Development:** Building and deploying autonomous agents.
 * **Architectural Mastery:** Implement Clean Code, Design Patterns, and professional application architecture (e.g., State Management for mobile, modular design for backend).
 * **Quality Assurance:** Master the practice of writing comprehensive tests (**Unit**, **Widget/Component**, **E2E**).
@@ -37,6 +38,8 @@ Your daily progress and project work must be documented according to the followi
     │   └── devops_roadmap.md    // Detailed 100-day flow for DevOps
     ├── nestjs/
     │   └── nestjs_roadmap.md    // Detailed 100-day flow for NestJS
+    ├── nextjs/
+    │   └── nextjs_roadmap.md    // Detailed 20-day flow for Next.js
     ├── git/
     │   └── git_roadmap.md       // Detailed 100-day flow for Git
     └── ai-agents/
