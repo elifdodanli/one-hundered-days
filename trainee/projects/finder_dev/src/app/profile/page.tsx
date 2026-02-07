@@ -33,7 +33,7 @@ import {
 import { loadProfileData, loadTechnologies } from "@/utils/content-loader";
 import { cn } from "@/lib/utils";
 import type { UserProfile, UserSkill, TechnologyCategory } from "@/types/profile";
-import { toast } from "sonner";
+import { ToastHelper } from "@/helpers/toastHelper";
 import { Loader2, Camera, Upload, X, Image as ImageIcon, Plus } from "lucide-react";
 
 // Mock user data - in real app, this would come from auth/supabase
@@ -258,42 +258,47 @@ export default function ProfilePage() {
       reader.readAsDataURL(file);
     }
   };
-
-  const handleSave = async () => {
+const handleSave = async () => {
     // Validate required fields
-    const trimmedUsername = profile.username?.trim() || "";
-    const trimmedFullName = profile.fullName?.trim() || "";
-    const trimmedRole = profile.role?.trim() || "";
-    
-    if (!trimmedUsername || !trimmedFullName || !trimmedRole) {
-      toast.error("Missing required fields", {
-        description: "Please fill in all required fields (marked with *)",
-      });
-      return;
-    }
-    
-    // In real app, this would save to Supabase
-    console.log("Saving profile:", profile);
-    
-    setIsSaving(true);
-    
-    // Show loading toast
-    const loadingToastId = toast.loading("Saving changes...", {
-      description: "Please wait while we save your profile",
-    });
-    
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    setIsSaving(false);
-    
-    // Dismiss loading toast and show success
-    toast.dismiss(loadingToastId);
-    toast.success("Changes saved!", {
-      description: "Your profile has been updated successfully",
-    });
-  };
+  const trimmedUsername = profile.username?.trim() || "";
+  const trimmedFullName = profile.fullName?.trim() || "";
+  const trimmedRole = profile.role?.trim() || "";
+  
+  // Trigger bottom-center alert if mandatory fields are missing
+  if (!trimmedUsername || !trimmedFullName || !trimmedRole) {
+    ToastHelper.validation(
+      "Incomplete Profile", 
+      "Please ensure all required fields (*) are populated."
+    );
+    return;
+  }
+  
+  setIsSaving(true);
 
+  try {
+    /**
+     * ToastHelper.promise automatically transitions from loading to success/error.
+     * @todo Replace the mock delay with: supabase.from('profiles').upsert(profile)
+     */
+    await ToastHelper.promise(
+      new Promise((resolve) => setTimeout(resolve, 1500)), // Simulated API call
+      {
+        loading: "Saving changes...",
+        success: "Success! Your profile is now live.",
+        error: "Failed to update profile. Please try again.",
+      }
+    );
+
+    console.log("Supabase sync initiated for:", profile.username);
+    
+  } catch (error) {
+    // Technical logging for internal debugging
+    console.error("Profile Synchronization Error:", error);
+  } finally {
+    // Reset local UI state regardless of the promise outcome
+    setIsSaving(false);
+  }
+};
   return (
     <DashboardLayout user={mockUser}>
       <div className="h-full gradient-bg">
